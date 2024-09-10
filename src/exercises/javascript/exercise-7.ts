@@ -9,6 +9,19 @@
  */
 export const exercise7 = (
   input: TValue[]
-): { truthy: TValue[]; falsy: TValue[] } => {};
+): { truthy: TValue[]; falsy: TValue[] } => {
+  const truthyArray: TValue[] = [];
+  const falsyArray: TValue[] = [];
+
+  for (const value of input) {
+    if (value) {
+      truthyArray.push(value);
+    } else {
+      falsyArray.push(value);
+    }
+  }
+  
+  return { truthy: truthyArray, falsy: falsyArray };
+};
 
 type TValue = string | number | object | null | undefined | boolean;
