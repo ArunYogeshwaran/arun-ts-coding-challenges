@@ -9,6 +9,15 @@
 export const exercise9 = <T>(
   fn: SyncFunction<T>,
   delay: number
-): ((...args: Parameters<SyncFunction<T>>) => Promise<T>) => {};
+): ((...args: Parameters<SyncFunction<T>>) => Promise<T>) => {
+  // I understand this on a high level, but I would like to understand the details of how this works.
+  return async (...args: Parameters<SyncFunction<T>>): Promise<T> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(fn(...args));
+      }, delay);
+    });
+  };
+};
 
 type SyncFunction<T> = (...args: any[]) => T;
