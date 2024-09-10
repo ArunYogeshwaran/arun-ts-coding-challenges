@@ -8,4 +8,19 @@
  * Input: "is2 Thi1s T4est 3a"
  * Output: "Thi1s is2 3a T4est"
  */
-export const exercise5 = (input: string): string => {};
+export const exercise5 = (input: string): string => {
+    const words = input.split(" ");
+    console.log(words);
+    
+    if (words[0] === '') { 
+        return ""
+    };
+    const result: string[] = [];
+
+    for (const word of words) {
+        const index: number = parseInt(word.match(/\d/));
+        result[index - 1] = word;
+    }
+
+    return result.join(" ").trim();
+};
