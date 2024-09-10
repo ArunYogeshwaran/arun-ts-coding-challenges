@@ -8,5 +8,12 @@
  * Output: [0, "hello", 2, 42, 4, 6, 8]
  */
 export const exercise6 = (
-  input: (number | string)[]
-): (number | string)[] => {};
+    input: (number | string)[]
+): (number | string)[] => {
+    const result = input.map(it => {
+      const value = parseInt(`${it}`);
+      return !Number.isNaN(value) ? value : it
+    })
+    return [...new Set(result)];
+}; // Did with Dani, Dionesto
+
