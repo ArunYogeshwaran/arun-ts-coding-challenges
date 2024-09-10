@@ -11,4 +11,15 @@
  */
 export const exercise3 = (
   input: Record<string, string | number>
-): Record<string, string> => {};
+): Record<string, string> => {
+  const keys = Object.keys(input);
+  console.log(keys);
+
+  const result: Record<string, string> = { };
+  for (const key of keys) {
+    const value = input[key];
+    result[value] = key;
+  }
+  
+  return result;
+};
