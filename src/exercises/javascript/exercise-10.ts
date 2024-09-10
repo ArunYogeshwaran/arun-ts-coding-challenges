@@ -10,4 +10,8 @@
  */
 export const exercise10 = (
   input: ((arg: number) => Promise<number>)[]
-): Promise<number> => {};
+): Promise<number> => {
+  return input.reduce((acc, curr) => {
+    return acc.then((result) => curr(result)).catch(() => 0);
+  }, Promise.resolve(0));
+};
